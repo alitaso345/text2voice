@@ -55,7 +55,7 @@ class Text2voice
     
     case res
     when Net::HTTPOK
-      res.body
+      binary_to_wav("test.wav", res.body)
     when Net::HTTPBadRequest
       raise BadRequest.new(res.body)
     when Net::HTTPUnauthorized
@@ -95,5 +95,12 @@ class Text2voice
     end
 
     return res
+  end
+
+  def binary_to_wav(filename, binary)
+    File.open("#{filename}", "w") do |io|
+      io.binmode
+      io.write binary
+    end
   end
 end
