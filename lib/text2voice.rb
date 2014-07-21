@@ -48,12 +48,12 @@ class Text2voice
     self
   end
 
-  def save
+  def save_as(filename)
     res = send_request()
     
     case res
     when Net::HTTPOK
-      binary_to_wav("test.wav", res.body)
+      binary_to_wav(filename, res.body)
     when Net::HTTPBadRequest
       raise BadRequest.new(res.body)
     when Net::HTTPUnauthorized
