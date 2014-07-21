@@ -39,12 +39,23 @@ module Text2voice
     @text = text
   end
 
-  def save(wav)
-
+  def save
+    res = send_request()
+    
+    case res
+    when Net::HTTPOK
+      res.body
+    when Net::HTTPBadRequest
+      raise BadRequest.new(res.body)
+    when Net::HTTPUnauthorized
+      raise Unauthoeized.new(res.body)
+    else
+      raise StandardError.new(res.body)
+    end
   end
 
-  def play(wav)
-
+  def play
+    res = send_request()
   end
 
   private
