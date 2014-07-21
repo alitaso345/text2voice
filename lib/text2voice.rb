@@ -11,7 +11,7 @@ class TextToVoice
 
   def initialize(api_key)
     @api_key = api_key
-    @speaker = "show"
+    @speaker = "haruka"
     @pitch = "100"
     @speed = "100"
     @volume = "100"
@@ -61,10 +61,6 @@ class TextToVoice
     else
       raise StandardError.new(res.body)
     end
-  end
-
-  def play
-    res = send_request()
   end
 
   private
