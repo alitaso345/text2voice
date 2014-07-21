@@ -47,7 +47,31 @@ module Text2voice
 
   end
 
+  private
   def create_request(text, speaker, emotion, emotion_level, pitch, speed, volume)
+    req = Net::HTTP::Post.new(ENDPOINT.path)
+    req.basic_auth(@api_key, '')   
+    data = "text=#{text}" 
+    data << ";speaker=#{speaker}"
+    data << ";emotion=#{emotion}"
+    data << ";emotion_level=#{emotion_level}"
+    data << ";pitch=#{pitch}"
+    data << ";speed=#{speed}"
+    data << ";volume=#{volume}"
+    req.body = data
+    
+    return req
+  end
 
+  def send_request
+    res = nil
+    https = Net::HTTP.new(ENDPOINT.host, 443)
+    https.use_ssl = true
+    https.start do |https|
+      req = create_request(@text, @speaker, @emotion, @emotion_level, @pitch, @volume)
+      res = https.request(req)
+    end
+
+    return res
   end
 end
