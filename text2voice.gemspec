@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["alice.maru345@gmail.com"]
   spec.summary       = %q{VoiceTextAPI}
   spec.description   = %q{This is VoiceTextAPI}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/alice345/text2voice"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
