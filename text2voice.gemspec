@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Text2voice::VERSION
   spec.authors       = ["alitaso345"]
   spec.email         = ["alice.maru345@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{VoiceTextAPI}
+  spec.description   = %q{This is VoiceTextAPI}
   spec.homepage      = ""
   spec.license       = "MIT"
 
