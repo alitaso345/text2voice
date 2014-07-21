@@ -5,7 +5,7 @@ require 'text2voice/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "text2voice"
-  spec.version       = Text2voice::VERSION
+  spec.version       = TextToVoice::VERSION
   spec.authors       = ["alitaso345"]
   spec.email         = ["alice.maru345@gmail.com"]
   spec.summary       = %q{VoiceTextAPI}
