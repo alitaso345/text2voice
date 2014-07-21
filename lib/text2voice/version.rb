@@ -1,3 +1,3 @@
-class Text2voice
+class TextToVoice
   VERSION = "0.0.1"
 end
