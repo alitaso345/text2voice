@@ -1,6 +1,16 @@
 require "text2voice/version"
+require 'uri'
+require 'net/https'
 
 module Text2voice
+  class BadRequest < StandardError; end
+  class Unauthoeized < StandardError; end
+
+  ENDPOINT = URI('https://api.voicetext.jp/v1/tts')
+  SPEAKERS = %w(show, haruka, hikari, takeru)
+  EMOTIONS = %w(happiness, anger, sadness)
+  EMOTION_LEVWL = {HIGHT: "2", ROW: "1"}
+
   def initialize(api_key)
     @api_key = api_key
     @speaker = "show"
