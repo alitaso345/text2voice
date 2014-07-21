@@ -2,7 +2,7 @@ require "text2voice/version"
 require 'uri'
 require 'net/https'
 
-module Text2voice
+class Text2voice
   class BadRequest < StandardError; end
   class Unauthoeized < StandardError; end
 
