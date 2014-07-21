@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'text2voice'
+
+    voice = TextToVoice.new("Your API key")
+
+    voice.speak("こころぴょんぴょん")
+         .speaker("haruka")
+         .emotion(emotion: :happiness, level: :HIGHT)
+
+    voice.save_as("test.wav") 
 
 ## Contributing
 
