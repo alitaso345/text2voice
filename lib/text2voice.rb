@@ -9,7 +9,7 @@ class Text2voice
   ENDPOINT = URI('https://api.voicetext.jp/v1/tts')
   SPEAKERS = %w(show, haruka, hikari, takeru)
   EMOTIONS = %w(happiness, anger, sadness)
-  EMOTION_LEVWL = {HIGHT: "2", ROW: "1"}
+  EMOTION_LEVEL = {HIGHT: "2", ROW: "1"}
 
   def initialize(api_key)
     @api_key = api_key
