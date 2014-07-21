@@ -14,29 +14,40 @@ class Text2voice
   def initialize(api_key)
     @api_key = api_key
     @speaker = "show"
-    @pitch = 100.to_s
-    @volume = 100.to_s
+    @pitch = "100"
+    @speed = "100"
+    @volume = "100"
   end
 
   def speaker(speaker_name)
     @speaker = speaker_name
+    self
   end
 
   def emotion(emotion: nil, level: nil)
     @emotion = emotion
     @emotion_level = level
+    self
   end
 
   def pitch(param)
     @pitch = param.to_s
+    self
+  end
+
+  def speed(param)
+    @speed = param.to_s
+    self
   end
 
   def volulme(param)
     @volume = param.to_s
+    self
   end
 
   def speak(text)
     @text = text
+    self
   end
 
   def save
@@ -79,7 +90,7 @@ class Text2voice
     https = Net::HTTP.new(ENDPOINT.host, 443)
     https.use_ssl = true
     https.start do |https|
-      req = create_request(@text, @speaker, @emotion, @emotion_level, @pitch, @volume)
+      req = create_request(@text, @speaker, @emotion, @emotion_level, @pitch, @speed, @volume)
       res = https.request(req)
     end
 
