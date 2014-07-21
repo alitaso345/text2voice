@@ -7,9 +7,7 @@ class Text2voice
   class Unauthoeized < StandardError; end
 
   ENDPOINT = URI('https://api.voicetext.jp/v1/tts')
-  SPEAKERS = %w(show, haruka, hikari, takeru)
-  EMOTIONS = %w(happiness, anger, sadness)
-  EMOTION_LEVEL = {HIGHT: "2", ROW: "1"}
+  EMOTION_LEVEL = {HIGHT: "2", ROW: "1", NORMAL: nil}
 
   def initialize(api_key)
     @api_key = api_key
@@ -24,9 +22,9 @@ class Text2voice
     self
   end
 
-  def emotion(emotion: nil, level: nil)
-    @emotion = emotion
-    @emotion_level = level
+  def emotion(emotion: nil, level: NORMAL)
+    @emotion = emotion.to_s
+    @emotion_level = EMOTION_LEVEL[level]
     self
   end
 
