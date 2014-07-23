@@ -24,9 +24,9 @@ Or install it yourself as:
 
     voice.speak("こころぴょんぴょん")
          .speaker("haruka")
-         .emotion(emotion: :happiness, level: :HIGHT)
+         .emotion(emotion: :happiness, level: :high)
 
-    voice.save_as("test.wav") 
+    voice.save_as("test.wav")
 
 ## Contributing
 
