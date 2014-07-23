@@ -7,7 +7,7 @@ class TextToVoice
   class Unauthoeized < StandardError; end
 
   ENDPOINT = URI('https://api.voicetext.jp/v1/tts')
-  EMOTION_LEVEL = {HIGHT: "2", ROW: "1", NORMAL: nil}
+  EMOTION_LEVEL = { normal: "1", high: "2"  }
 
   def initialize(api_key)
     @api_key = api_key
@@ -22,7 +22,7 @@ class TextToVoice
     self
   end
 
-  def emotion(emotion: nil, level: NORMAL)
+  def emotion(emotion:, level: :normal)
     @emotion = emotion.to_s
     @emotion_level = EMOTION_LEVEL[level]
     self
@@ -38,7 +38,7 @@ class TextToVoice
     self
   end
 
-  def volulme(param)
+  def volume(param)
     @volume = param.to_s
     self
   end
@@ -50,7 +50,7 @@ class TextToVoice
 
   def save_as(filename)
     res = send_request()
-    
+
     case res
     when Net::HTTPOK
       binary_to_wav(filename, res.body)
@@ -64,10 +64,11 @@ class TextToVoice
   end
 
   private
+
   def create_request(text, speaker, emotion, emotion_level, pitch, speed, volume)
     req = Net::HTTP::Post.new(ENDPOINT.path)
-    req.basic_auth(@api_key, '')   
-    data = "text=#{text}" 
+    req.basic_auth(@api_key, '')
+    data = "text=#{text}"
     data << ";speaker=#{speaker}"
     data << ";emotion=#{emotion}"
     data << ";emotion_level=#{emotion_level}"
@@ -75,7 +76,7 @@ class TextToVoice
     data << ";speed=#{speed}"
     data << ";volume=#{volume}"
     req.body = data
-    
+
     return req
   end
 
