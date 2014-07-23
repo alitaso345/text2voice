@@ -7,7 +7,7 @@ class TextToVoice
   class Unauthoeized < StandardError; end
 
   ENDPOINT = URI('https://api.voicetext.jp/v1/tts')
-  EMOTION_LEVEL = {HIGH: "2", LOW: "1", NORMAL: nil}
+  EMOTION_LEVEL = { HIGH: "2", LOW: "1", NORMAL: nil }
 
   def initialize(api_key)
     @api_key = api_key
@@ -64,6 +64,7 @@ class TextToVoice
   end
 
   private
+
   def create_request(text, speaker, emotion, emotion_level, pitch, speed, volume)
     req = Net::HTTP::Post.new(ENDPOINT.path)
     req.basic_auth(@api_key, '')
