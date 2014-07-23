@@ -50,7 +50,7 @@ class TextToVoice
 
   def save_as(filename)
     res = send_request()
-    
+
     case res
     when Net::HTTPOK
       binary_to_wav(filename, res.body)
@@ -66,8 +66,8 @@ class TextToVoice
   private
   def create_request(text, speaker, emotion, emotion_level, pitch, speed, volume)
     req = Net::HTTP::Post.new(ENDPOINT.path)
-    req.basic_auth(@api_key, '')   
-    data = "text=#{text}" 
+    req.basic_auth(@api_key, '')
+    data = "text=#{text}"
     data << ";speaker=#{speaker}"
     data << ";emotion=#{emotion}"
     data << ";emotion_level=#{emotion_level}"
@@ -75,7 +75,7 @@ class TextToVoice
     data << ";speed=#{speed}"
     data << ";volume=#{volume}"
     req.body = data
-    
+
     return req
   end
 
