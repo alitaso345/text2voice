@@ -7,7 +7,7 @@ class TextToVoice
   class Unauthoeized < StandardError; end
 
   ENDPOINT = URI('https://api.voicetext.jp/v1/tts')
-  EMOTION_LEVEL = { HIGH: "2", LOW: "1", NORMAL: nil }
+  EMOTION_LEVEL = { HIGH: "2", NORMAL: "1" }
 
   def initialize(api_key)
     @api_key = api_key
