@@ -1,4 +1,4 @@
-# Text2voice
+# Text2Voice
 
 This gem is Voice Text Web API(https://cloud.voicetext.jp/webapi/docs/introduction) for Ruby.
 
